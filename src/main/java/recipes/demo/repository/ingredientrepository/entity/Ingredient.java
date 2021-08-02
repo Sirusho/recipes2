@@ -1,10 +1,14 @@
-package recipes.demo.repository.dishrepository.entity;
+package recipes.demo.repository.ingredientcontroller.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import recipes.demo.repository.dishrepository.entity.DishIngredient;
+import recipes.demo.repository.foodtyperepository.entity.FoodType;
 
 import javax.persistence.*;
 import java.util.Set;
 
+@JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 @Entity(name = "ingredients")
 public class Ingredient {
     @Id
