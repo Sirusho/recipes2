@@ -32,10 +32,7 @@ public class DishController {
     @GetMapping
     public ResponseEntity<List<DishResponseModel>> getAllDishes() {
         List<Dish> allDishes = dishService.getAllDishes();
-        List<DishResponseModel> dishes=new ArrayList<>();
-        for (Dish dish : allDishes) {
-            dishes.add(new DishResponseModel(dish));
-        }
+        List<DishResponseModel> dishes = getDishResponseModels(allDishes);
         return new ResponseEntity<>(dishes, HttpStatus.OK);
     }
 
@@ -44,6 +41,38 @@ public class DishController {
         //System.out.println("Id in the GetMapping -> " + dishId);
         return new ResponseEntity<>(new DishResponseModel(dishService.getDishById(dishId)), HttpStatus.OK);
     }
+    @GetMapping("/searchByDifficulty/{difficulty}")
+    public ResponseEntity<List<DishResponseModel>> getDishByDifficulty(@PathVariable("difficulty") int difficulty) {
+        List<Dish> allDishes = dishService.getDishByDifficulty(difficulty);
+        List<DishResponseModel> dishes = getDishResponseModels(allDishes);
+        return new ResponseEntity<>(dishes, HttpStatus.OK);
+    }
+    @GetMapping("/searchByTag/{tag}")
+    public ResponseEntity<List<DishResponseModel>> getDishByTag(@PathVariable("tag") Long tag) {
+        List<Dish> allDishes = dishService.getDishByTag(tag);
+        List<DishResponseModel> dishes = getDishResponseModels(allDishes);
+        return new ResponseEntity<>(dishes, HttpStatus.OK);
+    }
+    @GetMapping("/searchByName/{name}")
+    public ResponseEntity<List<DishResponseModel>> getDishByName(@PathVariable("name") String name) {
+        List<Dish> allDishes = dishService.getDishByName(name);
+        List<DishResponseModel> dishes = getDishResponseModels(allDishes);
+        return new ResponseEntity<>(dishes, HttpStatus.OK);
+    }
+
+
+
+
+    private List<DishResponseModel> getDishResponseModels(List<Dish> allDishes) {
+        List<DishResponseModel> dishes = new ArrayList<>();
+        for (Dish dish : allDishes) {
+            dishes.add(new DishResponseModel(dish));
+        }
+        return dishes;
+    }
+
+
+
     /*
     @GetMapping("/hello")
 ResponseEntity<String> hello() {
@@ -65,14 +94,14 @@ ResponseEntity<String> hello() {
 
     // Delete user record
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteDish(@PathVariable Long id) {
+    public ResponseEntity<?> deleteDish(@PathVariable Long id) {
         try {
             dishService.deleteDishById(id);
-            return new ResponseEntity<String>(HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.OK);
         } catch (RuntimeException ex) {
             // log the error message
             System.out.println(ex.getMessage());
-            return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 }

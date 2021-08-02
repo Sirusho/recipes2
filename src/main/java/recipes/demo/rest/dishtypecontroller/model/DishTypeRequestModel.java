@@ -1,22 +1,22 @@
 package recipes.demo.rest.dishtypecontroller.model;
 
+import recipes.demo.repository.dishtyperepository.entity.DishType;
+
 public class DishTypeRequestModel {
-    private int id;
-    private String dishTypeName;
+   private DishType dishType;
 
-    public int getId() {
-        return id;
+    public DishTypeRequestModel() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public DishTypeRequestModel(DishType dishType) {
+        this.dishType = dishType;
     }
 
-    public String getDishTypeName() {
-        return dishTypeName;
+    public DishType getDishType() {
+        return dishType;
     }
 
-    public void setDishTypeName(String dishTypeName) {
-        this.dishTypeName = dishTypeName;
+    public void setDishType(DishType dishType) {
+        this.dishType = dishType;
     }
 }

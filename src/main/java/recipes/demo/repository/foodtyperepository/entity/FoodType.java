@@ -1,22 +1,26 @@
-package recipes.demo.repository.dishrepository.entity;
+package recipes.demo.repository.foodtyperepository.entity;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
+@JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 @Entity(name = "food_type")
 public class FoodType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
     private String category;
 //    @OneToMany(mappedBy = "foodType", fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, orphanRemoval = true)
 //    private List<Ingredient> ingredientList;
 
-    public int getId() {
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -17,5 +17,13 @@ public interface DishService {
 
     List<Dish> getAllDishes();
 
+    List<Dish> getDishByDifficulty(int difficulty);
+
+    List<Dish> getDishByTag(Long tag);
+
+    List<Dish> getDishByName(String name);
+
+
+
 
 }

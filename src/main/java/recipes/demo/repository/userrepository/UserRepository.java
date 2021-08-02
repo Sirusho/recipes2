@@ -1,4 +1,4 @@
-package recipes.demo.repository;
+package recipes.demo.repository.userrepository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import recipes.demo.repository.userrepository.entity.User;

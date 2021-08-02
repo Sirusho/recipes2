@@ -1,6 +1,7 @@
 package recipes.demo.repository.dishrepository.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import recipes.demo.repository.ingredientrepository.entity.Ingredient;
 
 import javax.persistence.*;
 

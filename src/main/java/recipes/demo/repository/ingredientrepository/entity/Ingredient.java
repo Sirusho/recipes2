@@ -1,4 +1,4 @@
-package recipes.demo.repository.ingredientcontroller.entity;
+package recipes.demo.repository.ingredientrepository.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -13,7 +13,7 @@ import java.util.Set;
 public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String ingredientName;
     private String measureUnit;//g, piece
     @ManyToOne
@@ -22,11 +22,11 @@ public class Ingredient {
     @OneToMany(mappedBy = "ingredient", cascade = {CascadeType.ALL}, orphanRemoval = true)
     private Set<DishIngredient> dishIngredientSet;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -4,7 +4,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import recipes.demo.rest.dishcontroller.model.DishRequestModel;
 import recipes.demo.repository.dishrepository.entity.Dish;
-import recipes.demo.repository.DishRepository;
+import recipes.demo.repository.dishrepository.DishRepository;
 import recipes.demo.service.dishservice.DishService;
 
 import java.util.List;
@@ -28,6 +28,12 @@ public class DishServiceImpl implements DishService {
 //        dish.setTotalTime(dishRequestModel.getTotalTime());
 //        return dish;
 //    }
+
+
+    @Override
+    public List<Dish> getDishByDifficulty(int difficulty) {
+        return repository.getDishByDifficulty(difficulty);
+    }
 
     @Override
     public Dish postDish(DishRequestModel dishRequest) {
@@ -55,5 +61,15 @@ public class DishServiceImpl implements DishService {
         }catch(DataAccessException ex){
             throw new RuntimeException(ex.getMessage());
         }
+    }
+
+    @Override
+    public List<Dish> getDishByTag(Long tag) {
+        return repository.getDishByTag(tag);
+    }
+
+    @Override
+    public List<Dish> getDishByName(String name) {
+        return repository.getDishByName(name);
     }
 }

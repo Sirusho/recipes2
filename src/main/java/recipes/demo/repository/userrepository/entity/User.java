@@ -1,11 +1,14 @@
 package recipes.demo.repository.userrepository.entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import recipes.demo.repository.dishrepository.entity.Dish;
 
 import javax.persistence.*;
 import java.util.List;
-
+@JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 @Entity(name = "users")
 public class User {
     @Id

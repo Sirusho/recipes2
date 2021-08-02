@@ -1,7 +1,7 @@
 package recipes.demo.service.userservice.impl;
 
 import org.springframework.stereotype.Service;
-import recipes.demo.repository.UserRepository;
+import recipes.demo.repository.userrepository.UserRepository;
 import recipes.demo.repository.userrepository.entity.User;
 import recipes.demo.rest.usercontroller.model.UserRequestModel;
 import recipes.demo.service.userservice.UserService;
@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUserById(Long userId) {
-
+        userRepository.delete(userRepository.getById(userId));
     }
 
     @Override

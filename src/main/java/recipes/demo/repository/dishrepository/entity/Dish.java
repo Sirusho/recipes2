@@ -1,7 +1,10 @@
 package recipes.demo.repository.dishrepository.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import recipes.demo.repository.dishtyperepository.entity.DishType;
+import recipes.demo.repository.tagrepository.entity.Tag;
 import recipes.demo.repository.userrepository.entity.User;
 
 import javax.persistence.*;
@@ -9,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+@JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 @Entity(name = "dish")
 public class Dish {
     @Id

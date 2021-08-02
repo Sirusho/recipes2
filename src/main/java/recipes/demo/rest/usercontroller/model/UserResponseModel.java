@@ -1,8 +1,9 @@
 package recipes.demo.rest.usercontroller.model;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import recipes.demo.repository.dishrepository.entity.Dish;
 import recipes.demo.repository.userrepository.entity.User;
-
 public class UserResponseModel {
 //    private Long id;
 //    private String userName;

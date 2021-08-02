@@ -1,4 +1,4 @@
-package recipes.demo.repository;
+package recipes.demo.repository.dishtyperepository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import recipes.demo.repository.dishtyperepository.entity.DishType;

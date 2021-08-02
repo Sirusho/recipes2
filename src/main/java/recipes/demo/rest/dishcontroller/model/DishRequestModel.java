@@ -3,7 +3,7 @@ package recipes.demo.rest.dishcontroller.model;
 import recipes.demo.repository.dishrepository.entity.Dish;
 
 public class DishRequestModel {
-    //    private Long dishId;
+//    private Long dishId;
 //    private String description;
 //    private int difficulty;
 //    private String dishName;

@@ -1,4 +1,4 @@
-package recipes.demo.repository;
+package recipes.demo.repository.tagrepository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import recipes.demo.repository.tagrepository.entity.Tag;

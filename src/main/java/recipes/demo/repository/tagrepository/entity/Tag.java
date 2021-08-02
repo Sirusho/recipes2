@@ -1,15 +1,18 @@
-package recipes.demo.repository.dishrepository.entity;
+package recipes.demo.repository.tagrepository.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import recipes.demo.repository.dishrepository.entity.Dish;
 
 import javax.persistence.*;
 import java.util.Set;
 
+@JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 @Entity(name = "tag")
 public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String description;
 
     @JsonBackReference(value = "dish-tag")
@@ -19,11 +22,11 @@ public class Tag {
     public Tag() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

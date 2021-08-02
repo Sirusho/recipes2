@@ -24,8 +24,7 @@ public class UserController {
     }
 
 
-    @PostMapping(consumes= APPLICATION_JSON_VALUE,
-            produces = APPLICATION_JSON_VALUE)
+    @PostMapping(produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<UserResponseModel> createUser(@RequestBody final UserRequestModel userRequestModel) {
 
         System.out.println("REACHED " + userRequestModel.getUser().getFirstName());
@@ -48,6 +47,18 @@ public class UserController {
     public ResponseEntity<UserResponseModel> getUserById(@PathVariable("id") Long userId) {
         System.out.println("Id in the GetMapping -> " + userId);
         return new ResponseEntity<>(new UserResponseModel(userService.getUserById(userId)), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteDish(@PathVariable Long id) {
+        try {
+            userService.deleteUserById(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (RuntimeException ex) {
+            // log the error message
+            System.out.println(ex.getMessage());
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }
 
